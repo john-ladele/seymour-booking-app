@@ -1,0 +1,57 @@
+{
+  "_from": "github:iamraphson/angularjs-ravepayment",
+  "_id": "angularjs-ravepayment@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-TX9dNPia6QJ4G1LO5AWXuX4C/no=",
+  "_location": "/angularjs-ravepayment",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "iamraphson/angularjs-ravepayment",
+    "rawSpec": "iamraphson/angularjs-ravepayment",
+    "saveSpec": "github:iamraphson/angularjs-ravepayment",
+    "fetchSpec": null,
+    "gitCommittish": "master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "github:iamraphson/angularjs-ravepayment#501eb6a3a8fb4a39887830552145a245ccba57f8",
+  "_spec": "iamraphson/angularjs-ravepayment",
+  "_where": "C:\\wamp\\www\\trenova-mobile",
+  "author": {
+    "name": "Ayeni Olusegun",
+    "email": "nsegun5@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/iamraphson/angularjs-ravepayment/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "This is a Angular 1.x library for implementing rave payment gateway",
+  "homepage": "https://github.com/iamraphson/angularjs-ravepayment#readme",
+  "keywords": [
+    "Javascript",
+    "Github",
+    "AngularJS",
+    "Angular 1.x",
+    "Open Source",
+    "Payments",
+    "Rave",
+    "Ravepayment",
+    "Flutterwave",
+    "Gateway"
+  ],
+  "license": "MIT",
+  "main": "dist/angular-paystack.min.js",
+  "name": "angularjs-ravepayment",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamraphson/angularjs-ravepayment.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}

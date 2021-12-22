@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular RavePayment</title>
+    <style type="text/css">
+        body {
+            font-size: 1em;
+            font-family: 'Tahoma', sans-serif;
+            text-align: center;
+        }
+        .paymentbtn {
+            color: #61DAFB;
+            width: 250px;
+            height: 50px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <div ng-app="RaveApp" ng-controller="RaveController">
+        <rave-pay-button
+            class="paymentbtn"
+            text="Pay Me, My Money"
+            email="email"
+            amount="amount"
+            reference="reference"
+            meta="metadata"
+            callback="callback"
+            close="close"
+            currency="customer.currency"
+            country="customer.country"
+            customer_firstname="customer.firstName"
+            customer_lastname="customer.lastName"
+            custom_title="website.title"
+            custom_description="website.description"
+            custom_logo="website.logo"
+            integrity_hash="integrityHash"
+        ></rave-pay-button>
+    </div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+<script type="text/javascript" src="./dist/angular-rave.min.js"></script>
+<script>
+    let raveApp = angular.module("RaveApp", ['ravepayment'])
+
+    raveApp.config(['$raveProvider', function ($raveProvider) {
+        $raveProvider.config({
+            key: "FLWPUBK-xxxxxxxxxxxxx-X",
+            isProduction: false
+        })
+    }])
+
+    raveApp.controller("RaveController", function($scope){
+        $scope.amount = 1000 //Naira
+
+	    $scope.customer = {
+		    firstName: 'Ayeni',
+		    lastName: 'Olusegun',
+		    currency: 'NGN',
+		    country: 'NG'
+	    };
+
+	    $scope.website = {
+		    title: 'website name',
+		    description: 'best ecommerce store',
+		    logo: 'http://website.com/logo.png'
+	    };
+
+	    $scope.meta = [
+		    {
+			    metaname: "flightid",
+	            metavalue: "93849-MK5000"
+            }
+        ];
+
+	    $scope.integrityHash = function() {
+		    // retrieve value from server.
+	    }
+
+	    $scope.computeReference = function() {
+            let text = "";
+            let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for( let i=0; i < 10; i++ )
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+            return text;
+        };
+
+	    $scope.reference = $scope.computeReference();
+
+	    $scope.email = "rave@flutterwave.com";
+	    $scope.callback = function (response) {
+		    console.log(response);
+	    };
+
+	    $scope.close = function () {
+		    console.log("Payment closed");
+	    };
+    })
+</script>
+</body>
+</html>

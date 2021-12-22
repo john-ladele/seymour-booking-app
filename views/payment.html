@@ -1,0 +1,64 @@
+<div class="jumbotron" >
+  	<div class="page-header">
+    	<h1 class="topic">MAKE PAYMENT </h1>
+    	<h3>You are paying for Booking #{{booking.bk_id}}</h3>
+    </div>
+    <div class="row">
+    	<div class="col-md-6 col-xs-12">
+    		<table class="table">
+    			<tbody>
+    				<tr>
+    					<td width="40%">Name</td>
+    					<td><strong>{{booking.bk_name}}</strong></td>
+    				</tr>
+    				<tr>
+    					<td>Email</td>
+    					<td><strong>{{booking.bk_email}}</strong></td>
+    				</tr>
+    				<tr>
+    					<td>Phone</td>
+    					<td><strong>{{booking.bk_phone}}</strong></td>
+    				</tr>
+    				<tr>
+    					<td>Company</td>
+    					<td><strong>{{booking.bk_company}}</strong></td>
+    				</tr>
+    				<tr>
+    					<td>Address</td>
+    					<td><strong>{{booking.bk_address}}</strong></td>
+    				</tr>
+    				<tr>
+    					<td>TOTAL</td>
+    					<td><strong>₦ {{booking.bk_total | number:2}}</strong></td>
+    				</tr>
+    				<tr>
+    					<td>Transaction Ref</td>
+    					<td><strong>{{reference}}</strong></td>
+    				</tr>
+
+    			</tbody>
+    		</table>
+    		<rave-pay-button
+	            ng-if="booking && !processing"
+	            class="btn btn-lg btn-success"
+	            text="Pay Now"
+	            email="booking.bk_email"
+	            amount="booking.bk_total"
+	            reference="reference"
+	            meta="metadata"
+	            callback="callback"
+	            close="close"
+	            currency="customer.currency"
+	            country="customer.country"
+	            customer_firstname="user_firstname"
+	            customer_lastname="user_surname"
+	            custom_title="website.title"
+	            custom_description="website.description"
+	        ></rave-pay-button>
+    		<!-- <button type="button" class="btn btn-lg btn-primary" ng-if="!processing" ng-click="process()">Process</button>
+    		<button type="button" class="btn btn-lg btn-primary" ng-if="processing" ng-click="stop()">Stop Processing</button> -->
+    		<button type="button" class="btn btn-lg btn-warning" ng-if="processing">Processing <i class="fa fa-spinner fa-spin"></i></button>
+    	</div>
+    </div>
+
+  </div>

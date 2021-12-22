@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="imgs/fav.png">
+
+    <title>Bookings :: Seymour Aviations Limited</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="bootstrap-4.0.0/dist/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+</head>
+
+<body ng-app="SeymourApp">
+    <div class="container" ng-controller="AppCtrl">
+
+        <div ng-include="'views/header.html'"></div>
+
+        <main role="main" class="container">
+            <div ui-view></div>
+        </main>
+
+        <div ng-include="'views/footer.html'"></div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- JQuery Popover -->
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+    <!-- Jquery Popover / -->
+    <!-- jquery /-->
+
+    <!-- bootstrap -->
+    <script src="bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-4.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
+    <script src="plugins/sweetalert1/sweetalert.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> > -->
+    <!-- jquery plugins -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <!-- <script>window.jQuery || document.write('<script src="bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script> -->
+
+
+    <!-- angular and plugins -->
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular-ui-router.min.js"></script>
+
+    <script src="plugins/angularjs-ravepayment/dist/angular-rave.min.js"></script>
+
+
+    <!-- angular scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+
+</body>
+
+</html>

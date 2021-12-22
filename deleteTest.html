@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="mainModule">
+<head>
+    <title>AngularJS delete operation</title>
+    <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+	<script  src="https://code.angularjs.org/1.2.27/angular.js" ></script> 
+	<script>
+	 var mainModule = angular.module('mainModule', []);
+        function mainController($scope) {
+			$scope.loggedActions = [];
+            $scope.customers = [
+                {id: 1, firstName: 'Joe', lastName: 'Thompson'},
+                {id: 2, firstName: 'Hank', lastName: 'Howards'},
+                {id: 3, firstName: 'Zoe', lastName: 'Frappe'}
+            ];
+            $scope.deleteCustomer = function (customer) {
+                var index = $scope.customers.indexOf(customer);
+                $scope.customers.splice(index, 1);
+            };
+        }
+	</script>	
+  </head>
+  <body ng-controller="mainController">
+    <div class="col-lg-5">
+	<h3>AngularJS Delete Operation </h3>
+		 <table class="table-striped table-bordered table table-hover">
+        <tbody>
+          <tr ng-repeat="customer in customers">
+            <td style="width:50px">
+              <button ng-click="deleteCustomer(customer)">Delete</button>
+            </td>
+            <td style="text-align:right">{{customer.id}}</td>
+            <td>{{customer.firstName}}</td>
+            <td>{{customer.lastName}}</td>
+          </tr>
+        </tbody>
+      </table>
+	</div>
+  </body>

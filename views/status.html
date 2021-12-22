@@ -1,0 +1,60 @@
+<!-- SUCCESS MESSAGE -->
+    	<div class="jumbotron" ng-if="response.payment_status == 'success'" align="center">
+	      <div class="py-5 text-center alert alert-success">
+	        <span style="font-size: 150px;"> <i class="fa fa-check-circle"></i></span>
+	        <h2>Payment SUCCESSFUL</h2>
+	        <p class="lead">Your booking has been submitted</p>
+	      </div>
+		  <div class="text-center text-uppercase">
+		 	<p class=""><strong>PAYMENT REF:</strong> {{response.booking.bk_payment_ref}}</p>
+		 	<p class=""><strong>BOOKING ID:</strong> {{response.booking.bk_id}}</p>
+		 	<p class=""><strong>AMOUNT PAID:</strong> ₦ {{response.booking.bk_total | number:2}}</p>
+		 	<p class=""><strong>DATE:</strong> {{response.booking_received.bk_time_submitted | date:'mediumDate'}}</p>
+		 	<p class=""><strong>RESPONSE MESSAGE:</strong> {{response.booking.rave_resp_msg}}</p>
+		 	<p class=""><strong>CUSTOMER:</strong> {{response.booking_received.bk_name}}</p>
+		  </div>
+		  <div class="alert alert-info">
+		  	<p class="text-center">Details of this transaction have been sent to your email. We will contact you shortly.</p>
+		  </div>
+		  <div>
+		  	<button type="button" class="btn btn-lg btn-primary col-md-12" ui-sref="booking">New Booking</button>
+		  </div>
+	  	</div>
+
+	  	<!-- SUCCESS MESSAGE  /-->
+
+	  	<!-- FAILURE MESSAGE -->
+    	<div class="jumbotron" ng-if="response.payment_status == 'failure'">
+	      <div class="py-5 text-center alert alert-danger">
+	        <span style="font-size: 150px;"> <i class="fa fa-times-circle"></i></span>
+	        <h2>Payment FAILED!</h2>
+	        <p class="lead">Please see details below</p>
+	      </div>
+	      <div class="text-center text-uppercase">
+		 	<p class=""><strong>PAYMENT REF:</strong> {{response.booking.bk_payment_ref}}</p>
+		 	<p class=""><strong>BOOKING ID:</strong> {{response.booking.bk_id}}</p>
+		 	<p class=""><strong>AMOUNT ATTEMPTED:</strong> ₦ {{response.booking.bk_total | number:2}}</p>
+		 	<p class=""><strong>DATE:</strong> {{response.booking_received.bk_time_submitted | date:'mediumDate'}}</p>
+		 	<p class=""><strong>RESPONSE MESSAGE:</strong> {{response.booking.rave_resp_msg}}</p>
+		  </div>
+		  <div class="alert alert-info">
+		  	<p class="text-center">You can click on TRY AGAIN below to attempt the payment again. If you have any issues, please contact Support.</p>
+		  </div>
+		  <div>
+		  	<button type="button" class="btn btn-lg btn-warning col-md-12" ui-sref="payment({bid:response.booking.bk_id})">Try Again</button>
+		  	<br><br>
+		  	<button type="button" class="btn btn-lg btn-primary col-md-12" ui-sref="booking">New Booking</button>
+		  </div>
+	  	</div>
+	  	<!--  FAILURE MESSAGE  /-->
+
+	  	<div class="jumbotron" ng-if="!response">
+	      <div class="py-5 text-center alert alert-primary">
+	        <span style="font-size: 150px;"> <i class="fa fa-exclamation-circle"></i></span>
+	        <h2>Something went wrong</h2>
+	        <p class="lead">Content for this page NOT found.</p>
+	      </div>
+		  <div>
+		  	<button type="button" class="btn btn-lg btn-primary col-md-12" ui-sref="booking">New Booking</button>
+		  </div>
+	  	</div>
